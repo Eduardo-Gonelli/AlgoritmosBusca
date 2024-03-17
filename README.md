@@ -17,5 +17,11 @@ O projeto foi construído na Unity 2022.3.20f1.
 - Clique em "Realizar busca" para que o caminho seja calculado.
 - Se quiser refazer a busca com outra origem e destino, clique em "Limpar grid".
 
+## Ajustes no GameManager
+- Selecione o objeto GameManager na cena Main.
+- Poderá ajustar a quantidade de linhas e colunas do grid gerado proceduralmente.
+- Ajuste também a porcentagem de quadrados que serão obstáculos, que ficarão na cor preta.
+- Configure as cores (observe se o canal alpha delas está em 100%. Pode ocorrer das cores estarem com o canal alpha zerado).
+
 Os exemplos contidos neste projeto foram estraídos e adaptados do livro AI for Games, de Ian Millington e outros foram construídos com algoritmos que aprendi na faculdade e ficaram guardados em minha biblioteca.
 O ChatGPT foi utilizado para adaptar parte dos algoritmos ao projeto.
