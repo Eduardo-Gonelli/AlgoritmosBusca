@@ -8,10 +8,12 @@ public class BFS
 {
     // Referência à lista de nós
     public List<Node> squares;
+    Color pathColor;
 
     // Inicia a busca em largura e, após a conclusão, visualiza o caminho
-    public void RunBFS(Node startNode, Node destinationNode, List<Node> nodes)
+    public void RunBFS(Node startNode, Node destinationNode, List<Node> nodes, Color color)
     {
+        pathColor = color;
         squares = nodes;
         BuscaLargura(startNode);
         VisualizarCaminho(destinationNode);
@@ -63,7 +65,7 @@ public class BFS
         while (currentNode != null)
         {
             // Altera a cor do quadrado para indicar o caminho
-            currentNode.square.GetComponent<SpriteRenderer>().color = Color.blue;
+            currentNode.square.GetComponent<SpriteRenderer>().color = pathColor;
             currentNode = currentNode.previousNode;
         }
     }

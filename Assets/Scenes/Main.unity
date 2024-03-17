@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 830966513}
   - component: {fileID: 830966512}
   m_Layer: 5
-  m_Name: StepsText
+  m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1906,6 +1906,7 @@ MonoBehaviour:
   buscar: {fileID: 793308936}
   searchTypeDropdown: {fileID: 1802813500}
   searchType: 0
+  infoText: {fileID: 830966512}
 --- !u!4 &896867123
 Transform:
   m_ObjectHideFlags: 0
@@ -2359,12 +2360,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 3762632602811456129, guid: b56bb0651ce7d41409b3603c723783c7, type: 3}
   grid: {fileID: 933067596}
-  rows: 100
-  cols: 100
+  rows: 21
+  cols: 21
   obstaclesPercentage: 20
-  startColor: {r: 0.08395338, g: 1, b: 0, a: 0}
-  endColor: {r: 1, g: 0, b: 0, a: 0}
-  pathColor: {r: 1, g: 0.6997107, b: 0.0141509175, a: 0}
+  startColor: {r: 0, g: 0.122285366, b: 1, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
+  pathColor: {r: 1, g: 0, b: 0.8009267, a: 1}
   cameraManager: {fileID: 876018070}
 --- !u!4 &1204439938
 Transform:

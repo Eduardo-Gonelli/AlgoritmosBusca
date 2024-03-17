@@ -29,21 +29,12 @@ public class GameManager : MonoBehaviour
         bfs = new BFS();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetButtonDown("Jump"))
-        {
-            gridGenerator.ChangeSquareColor(5, Color.blue, squares);
-        }
-    }
-
     public void RunSearch(Node startNode, Node destinationNode, SearchType searchType)
     {
         switch(searchType)
         {
             case SearchType.BFS:
-                bfs.RunBFS(startNode, destinationNode, squares);
+                bfs.RunBFS(startNode, destinationNode, squares, pathColor);
                 break;
             case SearchType.DFS:
                 Debug.Log("DFS");

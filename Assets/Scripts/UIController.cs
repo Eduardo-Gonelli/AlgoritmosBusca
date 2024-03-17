@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour
     public Node destinationNode = null;
 
     public GameManager gameManager; // Referência para o seu script GameManager
-    public BFS bfsScript; // Referência para o seu script BFS
+    //public BFS bfsScript; // Referência para o script BFS
 
     // Referências aos botões
     public Button selectOriginButton;
@@ -39,10 +39,13 @@ public class UIController : MonoBehaviour
     public TMP_Dropdown searchTypeDropdown;
     public SearchType searchType = SearchType.BFS;
 
+    public TMP_Text infoText;
+
     void Start()
     {
         // Popula o dropdown com os valores do enum
         PopulateSearchTypeDropdown();
+        infoText.text = "Clique em 'Selecionar origem' e clique em um quadrado branco.";
         // Adiciona listeners aos botões para selecionar origem e destino
         selectOriginButton.onClick.AddListener(() => { currentState = SelectionState.SelectingOrigin; });
         selectDestinationButton.onClick.AddListener(() => { currentState = SelectionState.SelectingDestination; });
@@ -54,6 +57,7 @@ public class UIController : MonoBehaviour
             destinationNode = null;
             currentState = SelectionState.None;
             buscar.interactable = true; // Habilita o botão de busca
+            infoText.text = "Clique em 'Selecionar origem' e clique em um quadrado branco.";
         });
     }
 
@@ -68,14 +72,16 @@ public class UIController : MonoBehaviour
             case SelectionState.SelectingOrigin:
                 originNode = clickedNode;
                 // Marque o quadrado como origem, por exemplo, mudando sua cor
-                clickedNode.square.GetComponent<SpriteRenderer>().color = Color.green;
+                clickedNode.square.GetComponent<SpriteRenderer>().color = gameManager.startColor;
                 currentState = SelectionState.None; // Reseta o estado
+                infoText.text = "Clique em 'Selecionar destino' e clique em um quadrado branco.";
                 break;
             case SelectionState.SelectingDestination:
                 destinationNode = clickedNode;
                 // Marque o quadrado como destino
-                clickedNode.square.GetComponent<SpriteRenderer>().color = Color.red;
+                clickedNode.square.GetComponent<SpriteRenderer>().color = gameManager.endColor;
                 currentState = SelectionState.Filled; // Muda o estado para preenchido
+                infoText.text = "Clique em 'Realizar busca' para iniciar a busca.";
                 break;
         }
     }
@@ -103,6 +109,7 @@ public class UIController : MonoBehaviour
         if (originNode != null && destinationNode != null)
         {
             gameManager.RunSearch(originNode, destinationNode, searchType); // Assuma que seu método de busca em largura se chama RunBFS
+            infoText.text = "Busca realizada com sucesso.\n\nClique em 'Limpar grid' para selecionar novos pontos.";
         }
     }
 
