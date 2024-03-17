@@ -87,7 +87,17 @@ public class GridGenerator
         if(index >= 0 && index < objects.Count)
         {
             objects[index].GetComponent<SpriteRenderer>().color = color;
+        }        
+    }
+
+    public void ClearGrid()
+    {
+        foreach (Node square in squares)
+        {
+            if (!square.isObstacle)
+            {
+                square.GetComponent<SpriteRenderer>().color = Color.white;                
+            }
         }
-        
     }
 }
