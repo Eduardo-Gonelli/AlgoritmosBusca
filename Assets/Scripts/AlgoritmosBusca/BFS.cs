@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// BFS (Breath First Search) é um algoritmo de busca em largura que percorre todos os nós de um grafo
+/// BFS (Breadth First Search) é um algoritmo de busca em largura que percorre todos os nós de um grafo
 /// Este exemplo aplica o algoritmo em um grid 2D
 /// </summary>
 public class BFS
