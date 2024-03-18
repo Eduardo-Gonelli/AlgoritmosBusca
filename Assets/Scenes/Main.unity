@@ -2360,12 +2360,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 3762632602811456129, guid: b56bb0651ce7d41409b3603c723783c7, type: 3}
   grid: {fileID: 933067596}
-  rows: 100
-  cols: 100
+  rows: 20
+  cols: 20
   obstaclesPercentage: 20
-  startColor: {r: 0, g: 0.122285366, b: 1, a: 1}
+  startColor: {r: 0, g: 0, b: 1, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 1}
-  pathColor: {r: 0.8081504, g: 0, b: 0.99215686, a: 1}
+  pathColor: {r: 1, g: 0, b: 0.7529412, a: 1}
   cameraManager: {fileID: 876018070}
 --- !u!4 &1204439938
 Transform:
@@ -2583,7 +2583,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.23633854, g: 0.4433962, b: 0.24976255, a: 0}
+  m_BackGroundColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
