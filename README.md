@@ -14,13 +14,13 @@ O projeto foi construído na Unity 2022.3.20f1.
 ## Funcionamento do projeto:
 - Clique em "Selecionar origem" e clique em um dos quadrados brancos na tela.
 - Clique em "Selecionar destino" e clique em um dos quadrados brancos na tela.
-- Selecione o algoritmo de busca (até o momento somenteo BFS está implementado).
+- Selecione o algoritmo de busca (até o momento somente o BFS está implementado).
 - Clique em "Realizar busca" para que o caminho seja calculado.
 - Se quiser refazer a busca com outra origem e destino, clique em "Limpar grid".
 
 ## Ajustes no GameManager
 - Selecione o objeto GameManager na cena Main.
-- Poderá ajustar a quantidade de linhas e colunas do grid gerado proceduralmente.
+- Poderá ajustar a quantidade de linhas e colunas do grid gerado proceduralmente (limitada no intervalo de 10 a 200).
 - Ajuste também a porcentagem de quadrados que serão obstáculos, que ficarão na cor preta.
 - Configure as cores (observe se o canal alpha delas está em 100%. Pode ocorrer das cores estarem com o canal alpha zerado).
 
