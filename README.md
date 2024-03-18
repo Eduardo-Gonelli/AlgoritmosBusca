@@ -8,6 +8,7 @@ O projeto foi construído na Unity 2022.3.20f1.
 - Abra o projeto na Unity. Recomenda-se a versão de criação (2022.3.20f1) ou superior.
 - Importe o TextMeshPro para o projeto (senão a UI não funciona).
 - Abra a cena Main.
+- Mude a resolução da janela Game para 1920x1080 (ou a UI ficará bugada).
 - Clique no ícone para executar o projeto (botão de "play").
 
 ## Funcionamento do projeto:
