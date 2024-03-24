@@ -21,5 +21,6 @@ public class Node : MonoBehaviour
     public void AddNeighbor(Node neighbor)
     {
         neighbors.Add(neighbor);
+        distance = Random.Range(0.0f, 2.0f);
     }
 }

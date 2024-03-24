@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public Color pathColor;
     public CameraManager cameraManager;
     BFS bfs;
+    DFS dfs;
+    Dijkstra dijkistra;
+    AStar aStar;
 
     void Start()
     {
@@ -27,6 +30,9 @@ public class GameManager : MonoBehaviour
         squares = gridGenerator.GenerateGrid();
         cameraManager.AdjustCamera(grid);
         bfs = new BFS();
+        dfs = new DFS();
+        dijkistra = new Dijkstra();
+        aStar = new AStar();
     }
 
     public void RunSearch(Node startNode, Node destinationNode, SearchType searchType)
@@ -37,13 +43,13 @@ public class GameManager : MonoBehaviour
                 bfs.RunBFS(startNode, destinationNode, squares, pathColor);
                 break;
             case SearchType.DFS:
-                Debug.Log("DFS");
+                dfs.RunDFS(startNode, destinationNode, squares, pathColor);
                 break;
             case SearchType.Dijkstra:
-                Debug.Log("Dijkstra");
+                dijkistra.RunDijkstra(startNode, destinationNode, squares, pathColor);
                 break;
             case SearchType.AStar:
-                Debug.Log("A*");
+                aStar.RunAStar(startNode, destinationNode, squares, pathColor);
                 break;
         }        
     }
