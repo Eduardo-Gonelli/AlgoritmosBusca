@@ -22,5 +22,12 @@ public class Node : MonoBehaviour
     {
         neighbors.Add(neighbor);
         distance = Random.Range(0.0f, 2.0f);
+        // -----------------------------------------------------------
+        // ativar a linha abaixo para setar o cost randomicamente.
+        // Só vai funcionar no Dijkistra e no A*
+        // assim o Dijkistra encontra o menor caminho baseado no custo
+        // Se não tiver essa linha, o Dijkistra vai se comportar como o BFS
+        cost = Random.Range(0.0f, 3.0f);
+        // -----------------------------------------------------------
     }
 }

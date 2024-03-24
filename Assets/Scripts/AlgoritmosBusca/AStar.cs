@@ -35,22 +35,6 @@ public class AStar
     {
         pathColor = color;
         squares = nodes;
-        // Se os nós não tiverem pesos, o custo é 1
-        
-        foreach (var node in squares)
-        {
-            if (node.cost == 0)
-            {
-                node.cost = 1;
-            }
-        }
-        // Senão, comentar o bloco acima e
-        // aplicar um random nos pesos ou ainda
-        // definir os pesos via inspector
-        // foreach (var node in squares)
-        // {
-        //     node.cost = Random.Range(1, 10);
-        // }
 
         Dictionary<Node, NodeRecord> nodeRecords = new Dictionary<Node, NodeRecord>();
         List<NodeRecord> open = new List<NodeRecord>();

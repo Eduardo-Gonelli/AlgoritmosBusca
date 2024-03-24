@@ -21,13 +21,6 @@ public class Dijkstra
         foreach (var node in squares)
         {
             node.distance = Mathf.Infinity; 
-            // -----------------------------------------------------------
-            // ativar a linha abaixo para setar o cost randomicamente.
-            // Só vai funcionar no Dijkistra
-            // assim o Dijkistra encontra o menor caminho baseado no custo
-            // Se não tiver essa linha, o Dijkistra vai se comportar como o BFS
-            // node.cost = Random.Range(0.0f, 2.0f);
-            // -----------------------------------------------------------
             node.previousNode = null;
             node.visited = false;
             openList.Clear();
