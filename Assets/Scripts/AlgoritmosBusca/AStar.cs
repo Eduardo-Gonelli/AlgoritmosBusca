@@ -42,12 +42,17 @@ public class AStar
 
         // Inicializa os registros de nós, listas aberta e fechada
         Dictionary<Node, NodeRecord> nodeRecords = new Dictionary<Node, NodeRecord>();
+        // Lista com nós a serem explorados
+        // Serão considerados para expansão os nós com menor custo estimado total
         List<NodeRecord> open = new List<NodeRecord>();
+        // Lista com nós que já foram explorados
+        // Serão ignorados na expansão
         List<NodeRecord> closed = new List<NodeRecord>();
 
         // Prepara o nó de início
         NodeRecord startRecord = new NodeRecord(startNode);
         startRecord.costSoFar = 0;
+        // Estimativa do custo total é a distância euclidiana até o destino
         startRecord.estimatedTotalCost = Heuristic(startNode, destinationNode);
         open.Add(startRecord);
         nodeRecords[startNode] = startRecord;
