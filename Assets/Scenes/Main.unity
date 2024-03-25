@@ -2360,8 +2360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 3762632602811456129, guid: b56bb0651ce7d41409b3603c723783c7, type: 3}
   grid: {fileID: 933067596}
-  rows: 100
-  cols: 100
+  rows: 20
+  cols: 20
   obstaclesPercentage: 20
   startColor: {r: 0, g: 0, b: 1, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 1}
