@@ -1,20 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Exemplo adaptado do algoritmo A* do livro 
+// AI for Games, de Ian Millington
 public class AStar
 {
-    // Referência à lista de nós
+    // Armazena todos os nós do grid para o algoritmo A*
     public List<Node> squares;
+    // Cor para marcar o caminho encontrado
     public Color pathColor;
 
-    // Define a classe NodeRecord internamente para controlar as informações adicionais necessárias
+    // Estrutura auxiliar para armazenar informações adicionais sobre os nós durante a busca
     private class NodeRecord
     {
-        public Node node;
-        public Node connection; // De onde veio
-        public float costSoFar;
-        public float estimatedTotalCost;
+        public Node node; // O próprio nó
+        public Node connection; // Nó anterior no caminho
+        public float costSoFar; // Custo acumulado para chegar até este nó
+        public float estimatedTotalCost; // Estimativa do custo total até o destino
 
+        // Inicializa um novo registro de nó com valores padrão
         public NodeRecord(Node node)
         {
             this.node = node;
@@ -24,30 +28,34 @@ public class AStar
         }
     }
 
-    // Função heurística para estimar a distância até o destino
+    // Função heurística que estima o custo de um nó até o destino. Neste caso, usa a distância euclidiana.
     private float Heuristic(Node a, Node b)
     {
-        return Vector2Int.Distance(a.gridPosition, b.gridPosition);
+        return Vector2.Distance(a.gridPosition, b.gridPosition);
     }
 
-    // Executa o algoritmo A*
+    // Método principal que executa o algoritmo A*
     public void RunAStar(Node startNode, Node destinationNode, List<Node> nodes, Color color)
     {
         pathColor = color;
         squares = nodes;
 
+        // Inicializa os registros de nós, listas aberta e fechada
         Dictionary<Node, NodeRecord> nodeRecords = new Dictionary<Node, NodeRecord>();
         List<NodeRecord> open = new List<NodeRecord>();
         List<NodeRecord> closed = new List<NodeRecord>();
 
+        // Prepara o nó de início
         NodeRecord startRecord = new NodeRecord(startNode);
         startRecord.costSoFar = 0;
         startRecord.estimatedTotalCost = Heuristic(startNode, destinationNode);
         open.Add(startRecord);
         nodeRecords[startNode] = startRecord;
 
+        // Enquanto houver nós na lista aberta, continua a busca
         while (open.Count > 0)
         {
+            // Seleciona o nó com o menor custo estimado total
             NodeRecord currentRecord = open[0];
             foreach (var record in open)
             {
@@ -57,18 +65,22 @@ public class AStar
                 }
             }
 
+            // Se o nó atual é o destino, termina a busca
             if (currentRecord.node == destinationNode)
             {
                 break;
             }
 
+            // Explora os vizinhos do nó atual
             foreach (Node neighbor in currentRecord.node.neighbors)
             {
+                // Ignora obstáculos
                 if (neighbor.isObstacle) continue;
 
                 float endNodeCost = currentRecord.costSoFar + neighbor.cost;
                 NodeRecord endNodeRecord;
 
+                // Atualiza ou cria um novo registro para o vizinho
                 if (nodeRecords.ContainsKey(neighbor))
                 {
                     endNodeRecord = nodeRecords[neighbor];
@@ -84,22 +96,25 @@ public class AStar
                 endNodeRecord.connection = currentRecord.node;
                 endNodeRecord.estimatedTotalCost = endNodeCost + Heuristic(neighbor, destinationNode);
 
+                // Adiciona o vizinho à lista aberta se ainda não estiver
                 if (!open.Contains(endNodeRecord))
                 {
                     open.Add(endNodeRecord);
                 }
             }
 
+            // Move o nó atual da lista aberta para a fechada
             open.Remove(currentRecord);
             closed.Add(currentRecord);
         }
 
-        // Recria o caminho até o destino
+        // Reconstrói o caminho do destino até o início
         if (nodeRecords.ContainsKey(destinationNode))
         {
             NodeRecord current = nodeRecords[destinationNode];
             while (current.node != startNode)
             {
+                // Marca os nós do caminho
                 current.node.square.GetComponent<SpriteRenderer>().color = pathColor;
                 current = nodeRecords[current.connection];
             }

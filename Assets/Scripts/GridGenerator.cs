@@ -50,8 +50,8 @@ public class GridGenerator
         // Adiciona os vizinhos de cada quadrado
         foreach (Node square in squares)
         {
-            int x = square.gridPosition.x;
-            int y = square.gridPosition.y;
+            float x = square.gridPosition.x;
+            float y = square.gridPosition.y;
 
             if (x > 0)
             {
@@ -75,7 +75,7 @@ public class GridGenerator
         return squares;
     }
 
-    private Node GetNodeAtPosition(int x, int y)
+    private Node GetNodeAtPosition(float x, float y)
     {
         // Aqui estamos assumindo que cada GameObject tem um componente Node anexado
         return squares.Find(n => n.gridPosition.x == x && n.gridPosition.y == y);
