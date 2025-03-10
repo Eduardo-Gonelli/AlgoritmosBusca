@@ -14,7 +14,7 @@ O projeto foi construído na Unity 2022.3.20f1.
 ## Funcionamento do projeto:
 - Clique em "Selecionar origem" e clique em um dos quadrados brancos na tela.
 - Clique em "Selecionar destino" e clique em um dos quadrados brancos na tela.
-- Selecione o algoritmo de busca (BFS, DFS, Dijkistra ou A*)
+- Selecione o algoritmo de busca (BFS, DFS, Dijkstra ou A*)
 - Clique em "Realizar busca" para que o caminho seja calculado.
 - Se quiser refazer a busca com outra origem e destino, clique em "Limpar grid".
 
