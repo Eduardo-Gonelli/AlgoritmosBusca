@@ -24,7 +24,7 @@ public class Node : MonoBehaviour
         
         // -----------------------------------------------------------
         // ativar a linha abaixo para setar o cost randomicamente.
-        // Só vai funcionar no Dijkistra e no A*
+        // Só vai funcionar no Dijkstra e no A*
         // assim o Dijkistra encontra o menor caminho baseado no custo
         // Se não tiver essa linha, o Dijkistra vai se comportar como o BFS
         
