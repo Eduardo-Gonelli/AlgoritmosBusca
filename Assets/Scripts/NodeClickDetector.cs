@@ -20,7 +20,7 @@ public class NodeClickDetector : MonoBehaviour
                 // Obtém o componente Node do objeto clicado
                 Node clickedNode = hit.collider.gameObject.GetComponent<Node>();
                 // Chama o método que lida com o clique no Node
-                FindObjectOfType<UIController>().NodeClicked(clickedNode);
+                FindFirstObjectByType<UIController>().NodeClicked(clickedNode);
             }
         }
     }
