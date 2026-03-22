@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int cols;
     [Range(0, 50)]
     public int obstaclesPercentage;
+    public bool pesososAleatorios = false; // Ativa ou desativa a atribuição de pesos aleatórios aos nós
     public Color startColor;
     public Color endColor;
     public Color pathColor;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        gridGenerator = new GridGenerator(rows, cols, squarePrefab, obstaclesPercentage, grid);
+        gridGenerator = new GridGenerator(rows, cols, squarePrefab, obstaclesPercentage, grid, pesososAleatorios);
         squares = gridGenerator.GenerateGrid();
         cameraManager.AdjustCamera(grid);
         bfs = new BFS();

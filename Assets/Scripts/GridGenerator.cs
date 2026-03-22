@@ -10,14 +10,16 @@ public class GridGenerator
     int obstaclesPercentage;
     List<Node> squares = new List<Node>();
     GameObject grid;
+    bool pesosAleatorios;
 
-    public GridGenerator(int rows, int cols, GameObject squarePrefab, int obstaclesPercentage, GameObject grid)
+    public GridGenerator(int rows, int cols, GameObject squarePrefab, int obstaclesPercentage, GameObject grid, bool pesosAleatorios)
     {
         this.rows = rows;
         this.cols = cols;
         this.squarePrefab = squarePrefab;
         this.obstaclesPercentage = obstaclesPercentage;
         this.grid = grid;
+        this.pesosAleatorios = pesosAleatorios;
     }
 
     // Gera a grid
@@ -55,19 +57,19 @@ public class GridGenerator
 
             if (x > 0)
             {
-                square.AddNeighbor(GetNodeAtPosition(x - 1, y));
+                square.AddNeighbor(GetNodeAtPosition(x - 1, y), pesosAleatorios);
             }
             if (x < cols - 1)
             {
-                square.AddNeighbor(GetNodeAtPosition(x + 1, y));
+                square.AddNeighbor(GetNodeAtPosition(x + 1, y), pesosAleatorios);
             }
             if (y > 0)
             {
-                square.AddNeighbor(GetNodeAtPosition(x, y - 1));
+                square.AddNeighbor(GetNodeAtPosition(x, y - 1), pesosAleatorios);
             }
             if (y < rows - 1)
             {
-                square.AddNeighbor(GetNodeAtPosition(x, y + 1));
+                square.AddNeighbor(GetNodeAtPosition(x, y + 1), pesosAleatorios);
             }
         }
 

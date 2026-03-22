@@ -129,4 +129,9 @@ public class UIController : MonoBehaviour
         // Adiciona a lista de strings como opções do dropdown
         searchTypeDropdown.AddOptions(options);
     }
+
+    public void SetPesosAleatorios()
+    {
+        gameManager.pesososAleatorios = !gameManager.pesososAleatorios; // Alterna o estado dos pesos aleatórios
+    }
 }

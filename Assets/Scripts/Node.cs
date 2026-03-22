@@ -18,7 +18,7 @@ public class Node : MonoBehaviour
         this.gridPosition = gridPosition;
     }
 
-    public void AddNeighbor(Node neighbor)
+    public void AddNeighbor(Node neighbor, bool pesosAleatorios)
     {
         neighbors.Add(neighbor);
         
@@ -28,8 +28,8 @@ public class Node : MonoBehaviour
         // assim o Dijkistra encontra o menor caminho baseado no custo
         // Se não tiver essa linha, o Dijkistra vai se comportar como o BFS
         
-        cost = Random.Range(0.0f, 3.0f);
-        
-        // -----------------------------------------------------------
+        if(pesosAleatorios) cost = Random.Range(0.0f, 3.0f);
+
+            // -----------------------------------------------------------
     }
 }
