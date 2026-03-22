@@ -66,12 +66,16 @@ public class BFS
     // Método para visualizar o caminho (opcional)
     public void VisualizarCaminho(Node destino)
     {
+        int steps = 0;
         Node currentNode = destino;
+        
         while (currentNode != null)
         {
             // Altera a cor do quadrado para indicar o caminho
             currentNode.square.GetComponent<SpriteRenderer>().color = pathColor;
             currentNode = currentNode.previousNode;
+            steps++;
         }
+        Debug.Log("Caminho visualizado com sucesso. Número de passos: " + steps);
     }
 }

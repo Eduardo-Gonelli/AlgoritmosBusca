@@ -57,11 +57,14 @@ public class DFS
     // Método para visualizar o caminho (opcional)
     private void VisualizarCaminho(Node destino)
     {
+        int steps = 0;
         Node currentNode = destino;
         while (currentNode != null)
         {
             currentNode.square.GetComponent<SpriteRenderer>().color = pathColor;
             currentNode = currentNode.previousNode;
+            steps++;
         }
+        Debug.Log("Caminho visualizado com sucesso. Número de passos: " + steps);
     }
 }

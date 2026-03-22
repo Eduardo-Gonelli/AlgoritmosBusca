@@ -116,13 +116,16 @@ public class AStar
         // Reconstrói o caminho do destino até o início
         if (nodeRecords.ContainsKey(destinationNode))
         {
+            int steps = 0;
             NodeRecord current = nodeRecords[destinationNode];
             while (current.node != startNode)
             {
                 // Marca os nós do caminho
                 current.node.square.GetComponent<SpriteRenderer>().color = pathColor;
                 current = nodeRecords[current.connection];
+                steps++;
             }
+            Debug.Log("Caminho visualizado com sucesso. Número de passos: " + steps);
         }
     }
 }
