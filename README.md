@@ -1,6 +1,6 @@
 # Algoritmos de Busca em Unity
 Este projeto estuda a aplicação dos algoritmos de busca BFS (Breadth-First Search - Busca em Largura), DFS (Depth-First Search - Busca em Profundidade), Dijkstra (Busca Uniforme) e A* em um grid procedural.
-O projeto foi construído na Unity 2022.3.20f1 e atualizado para a Unity 6000.3.0f1 (ver branch 6.3).
+O projeto foi construído na Unity 2022.3.20f1 e atualizado para a Unity 6000.3.8f1 (ver branch 6.3).
 
 ## Como usar o exemplo:
 - Baixe o projeto via git ou fazendo o download do arquivo .zip.
